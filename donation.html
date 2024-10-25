@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to Plant Trees</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+    <style>
+        /* Custom CSS for animations and styling */
+        body {
+            background: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            animation: fadeIn 1s ease-in-out;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            animation: bounceIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .form-control {
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+
+        .btn-success {
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-success:hover {
+            transform: scale(1.05);
+            background-color: #218838;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .donation-steps {
+            background: #dff0d8;
+            padding: 20px;
+            border-radius: 5px;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+            margin-top: 20px;
+        }
+
+        .donation-steps h3 {
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Testimonials and Security Seals */
+        .testimonials {
+            margin: 50px 0;
+            padding: 30px;
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .verified-seals {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .verified-seals img {
+            margin: 0 10px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-success text-white p-3">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand text-white" href="#">Tree Foundation</a>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item"><a href="/aboutus.html" class="nav-link text-white">About</a></li>
+                    <li class="nav-item"><a href="/donation.html" class="nav-link text-white">Donate</a></li>
+                    <li class="nav-item"><a href="/contact.html" class="nav-link text-white">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <h1>Donate to Plant Trees</h1>
+        <p>Your contributions will help us plant more trees, restore ecosystems, and combat climate change. Join us in making a difference!</p>
+        <div class="donation-steps">
+            <h3>How to Donate:</h3>
+            <ol>
+                <li>Fill out the donation form below.</li>
+                <li>Select your donation amount.</li>
+                <li>Submit the form to make a difference!</li>
+            </ol>
+        </div>
+
+        <!-- Donation form -->
+        <form id="donationForm" class="mt-4" onsubmit="return false;">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required>
+                <small class="form-text text-muted">Enter your 10-digit phone number.</small>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Donation Amount (₹)</label>
+                <input type="number" class="form-control" id="amount" min="1" value="1" required>
+            </div>
+            <button type="button" class="btn btn-success" onclick="openPaymentApp()">Donate Now</button>
+        </form>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h3 class="text-center">What Our Donors Say</h3>
+            <div class="row">
+                <div class="col-md-4 testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ananya S." class="testimonial-image">
+                    <div>
+                        <p class="testimonial-text">"I'm so happy to contribute to this cause. It's a great feeling to know my donations are making an impact."</p>
+                        <p class="text-muted">- Ananya S.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Ravi T." class="testimonial-image">
+                    <div>
+                        <p class="testimonial-text">"Tree Plantation Foundation is doing incredible work. I'm proud to be a part of their mission."</p>
+                        <p class="text-muted">- Ravi T.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya K." class="testimonial-image">
+                    <div>
+                        <p class="testimonial-text">"Every time I donate, I feel like I'm contributing to a greener world. Highly recommend this foundation."</p>
+                        <p class="text-muted">- Priya K.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verified Seals -->
+        <div class="verified-seals">
+            <img src="https://via.placeholder.com/100x50?text=Secure+Payment" alt="Secure Payment">
+            <img src="https://via.placeholder.com/100x50?text=Verified+Payment+Gateway" alt="Verified by Trusted Payment Gateway">
+            
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tree Plantation Foundation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openPaymentApp() {
+            const phoneInput = document.getElementById('phone').value;
+            const maskedPhone = phoneInput.slice(0, -4).replace(/[0-9]/g, 'x') + phoneInput.slice(-4);
+
+            alert(`Payment request sent to ${maskedPhone}. Please confirm.`);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+}
+
+/* Header Styling */
+.header {
+    background-color: #28a745;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    animation: slide-in 1.5s ease-in-out;
+}
+
+/* General Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Section Styling */
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    animation: fade-in-up 1.5s ease-in-out;
+}
+
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #555;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fade-in-up 2s ease-in-out;
+}
+
+/* Light background sections */
+.section.bg-light {
+    background-color: #f0f8f4;
+}
+
+/* List styling for "Our Work" section */
+.section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.section ul li {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+    border-radius: 5px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fade-in-up 2s ease-in-out;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    animation: fade-in-up 2s ease-in-out;
+}
+
+/* Text Animations */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .section p {
+        font-size: 1rem;
+    }
+}

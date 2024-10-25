@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tree Plantation Foundation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for animations and styling */
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #c8e6c9);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .header {
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            animation: bounceIn 1s ease forwards;
+            opacity: 0;
+            color: #2e7d32;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Styling for form inputs */
+        .form-group {
+            position: relative;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            padding-left: 40px;
+        }
+
+        .form-control-icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #28a745;
+        }
+
+        .btn-success {
+            transition: transform 0.3s, background-color 0.3s;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-success:hover {
+            transform: scale(1.05);
+            background-color: #218838;
+        }
+
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Form animations */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Adjusting footer to stay at the bottom */
+        .content {
+            flex: 1;
+        }
+
+        /* Contact icons for input fields */
+        .form-control-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding-left: 40px;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn-success {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-success text-white p-3 header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand text-white" href="#">Tree Foundation</a>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item"><a href="/aboutus.html" class="nav-link text-white">About</a></li>
+                    <li class="nav-item"><a href="/donation.html" class="nav-link text-white">Donate</a></li>
+                    <li class="nav-item"><a href="/contact.html" class="nav-link text-white">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container py-5 content">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <span class="form-control-icon">&#128100;</span>
+                <input type="text" class="form-control" id="name" placeholder="Your Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <span class="form-control-icon">&#9993;</span>
+                <input type="email" class="form-control" id="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <span class="form-control-icon">&#128222;</span>
+                <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <span class="form-control-icon">&#128172;</span>
+                <input type="text" class="form-control" id="subject" placeholder="Subject of Inquiry" required>
+            </div>
+            <div class="form-group">
+                <label for="issue">Issue</label>
+                <span class="form-control-icon">&#128221;</span>
+                <textarea class="form-control" id="issue" rows="3" placeholder="Describe your issue" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tree Plantation Foundation. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Animation for the header and h1
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('.header');
+            const title = document.querySelector('h1');
+            const formGroups = document.querySelectorAll('.form-group');
+
+            setTimeout(() => {
+                header.style.opacity = 1;
+            }, 100);
+
+            setTimeout(() => {
+                title.style.opacity = 1;
+            }, 500);
+
+            // Animate form groups
+            formGroups.forEach((group, index) => {
+                setTimeout(() => {
+                    group.style.opacity = 1;
+                }, 700 + index * 200); // Staggered effect
+            });
+        });
+    </script>
+</body>
+
+</html>
