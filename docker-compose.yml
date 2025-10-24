@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  tree-plantation-web:
+    build: .
+    container_name: tree-plantation-website
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    volumes:
+      # Optional: Mount for development (uncomment if needed)
+      # - ./:/usr/share/nginx/html:ro
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80

@@ -1,0 +1,16 @@
+# Git files
+.git
+.gitignore
+
+# Documentation
+README.md
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Development files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
